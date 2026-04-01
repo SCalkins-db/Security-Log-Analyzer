@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "generated_utc": "2026-03-10T06:42:08.004579+00:00"
+  },
+  "incident_responses": [
+    {
+      "incident_id": 1,
+      "type": "IMPOSSIBLE_TRAVEL",
+      "severity": "HIGH",
+      "risk_score": 100,
+      "risk_reason": [
+        "repeat_user_activity"
+      ],
+      "actions_taken": [
+        "lock_account",
+        "block_ip",
+        "flag_for_review"
+      ]
+    },
+    {
+      "incident_id": 2,
+      "type": "IMPOSSIBLE_TRAVEL",
+      "severity": "HIGH",
+      "risk_score": 100,
+      "risk_reason": [
+        "repeat_user_activity"
+      ],
+      "actions_taken": [
+        "lock_account",
+        "block_ip",
+        "flag_for_review"
+      ]
+    },
+    {
+      "incident_id": 3,
+      "type": "COMPROMISE",
+      "severity": "HIGH",
+      "risk_score": 100,
+      "risk_reason": [
+        "external_ip",
+        "repeat_user_activity"
+      ],
+      "actions_taken": [
+        "lock_account",
+        "block_ip",
+        "flag_for_review"
+      ]
+    },
+    {
+      "incident_id": 4,
+      "type": "BURST",
+      "severity": "MEDIUM",
+      "risk_score": 55,
+      "risk_reason": [
+        "external_ip"
+      ],
+      "actions_taken": [
+        "block_ip",
+        "monitor"
+      ]
+    },
+    {
+      "incident_id": 5,
+      "type": "BURST",
+      "severity": "MEDIUM",
+      "risk_score": 55,
+      "risk_reason": [
+        "external_ip"
+      ],
+      "actions_taken": [
+        "block_ip",
+        "monitor"
+      ]
+    },
+    {
+      "incident_id": 6,
+      "type": "SPRAY",
+      "severity": "MEDIUM",
+      "risk_score": 60,
+      "risk_reason": [
+        "external_ip"
+      ],
+      "actions_taken": [
+        "block_ip",
+        "monitor"
+      ]
+    },
+    {
+      "incident_id": 7,
+      "type": "BURST",
+      "severity": "MEDIUM",
+      "risk_score": 55,
+      "risk_reason": [
+        "external_ip"
+      ],
+      "actions_taken": [
+        "block_ip",
+        "monitor"
+      ]
+    },
+    {
+      "incident_id": 8,
+      "type": "NEW_PORT",
+      "severity": "LOW",
+      "risk_score": 35,
+      "risk_reason": [
+        "external_ip",
+        "repeat_user_activity"
+      ],
+      "actions_taken": [
+        "monitor"
+      ]
+    },
+    {
+      "incident_id": 9,
+      "type": "NEW_HOST",
+      "severity": "LOW",
+      "risk_score": 35,
+      "risk_reason": [
+        "external_ip",
+        "repeat_user_activity"
+      ],
+      "actions_taken": [
+        "monitor"
+      ]
+    },
+    {
+      "incident_id": 10,
+      "type": "NEW_HOST",
+      "severity": "LOW",
+      "risk_score": 5,
+      "risk_reason": [
+        "repeat_user_activity"
+      ],
+      "actions_taken": [
+        "monitor"
+      ]
+    },
+    {
+      "incident_id": 11,
+      "type": "NEW_PORT",
+      "severity": "LOW",
+      "risk_score": 5,
+      "risk_reason": [
+        "repeat_user_activity"
+      ],
+      "actions_taken": [
+        "monitor"
+      ]
+    },
+    {
+      "incident_id": 12,
+      "type": "NEW_HOST",
+      "severity": "LOW",
+      "risk_score": 35,
+      "risk_reason": [
+        "external_ip",
+        "repeat_user_activity"
+      ],
+      "actions_taken": [
+        "monitor"
+      ]
+    },
+    {
+      "incident_id": 13,
+      "type": "NEW_PORT",
+      "severity": "LOW",
+      "risk_score": 35,
+      "risk_reason": [
+        "external_ip",
+        "repeat_user_activity"
+      ],
+      "actions_taken": [
+        "monitor"
+      ]
+    }
+  ],
+  "final_system_state": {
+    "locked_accounts": [
+      "dina",
+      "john"
+    ],
+    "blocked_ips": [
+      "185.220.101.45",
+      "192.168.1.15",
+      "45.33.12.90",
+      "91.134.178.222"
+    ],
+    "mfa_required": []
+  }
+}

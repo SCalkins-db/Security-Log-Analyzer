@@ -1,0 +1,465 @@
+{
+  "meta": {
+    "schema_version": "1.0",
+    "generated_utc": "2026-03-10T06:29:19.656801Z",
+    "window_seconds": 120,
+    "thresholds": {
+      "burst_failures_in_window": 5,
+      "spray_unique_users_in_window": 3,
+      "user_total_fail_warning": 3,
+      "min_baseline_successes": 2,
+      "impossible_travel_window_seconds": 300,
+      "impossible_travel_max_seconds": 300
+    },
+    "logfile": "logs.txt"
+  },
+  "totals": {
+    "failures_by_user": {
+      "john": 2,
+      "carol": 2,
+      "dina": 6,
+      "anna": 1,
+      "bob": 1,
+      "carl": 1,
+      "erin": 2,
+      "frank": 1,
+      "admin": 6
+    },
+    "failures_by_ip": {
+      "192.168.1.15": 2,
+      "192.168.1.30": 2,
+      "45.33.12.90": 5,
+      "185.220.101.45": 8,
+      "91.134.178.222": 5
+    },
+    "successes_by_user": {
+      "john": 6,
+      "anna": 2,
+      "bob": 2,
+      "carl": 2,
+      "erin": 2,
+      "frank": 2,
+      "dina": 4,
+      "admin": 6,
+      "carol": 2
+    },
+    "successes_by_ip": {
+      "192.168.1.15": 4,
+      "192.168.1.22": 4,
+      "192.168.1.35": 2,
+      "192.168.1.30": 4,
+      "192.168.1.40": 2,
+      "192.168.1.18": 1,
+      "192.168.1.50": 6,
+      "45.33.12.90": 3,
+      "91.134.178.222": 2
+    },
+    "top_targeted_services_by_failures": [
+      {
+        "source_ip": "185.220.101.45",
+        "source_scope": "external",
+        "target_host": "web01",
+        "target_port": 443,
+        "failures": 8
+      },
+      {
+        "source_ip": "45.33.12.90",
+        "source_scope": "external",
+        "target_host": "server01",
+        "target_port": 22,
+        "failures": 5
+      },
+      {
+        "source_ip": "91.134.178.222",
+        "source_scope": "external",
+        "target_host": "db-prod",
+        "target_port": 1433,
+        "failures": 5
+      },
+      {
+        "source_ip": "192.168.1.15",
+        "source_scope": "internal",
+        "target_host": "workstation-07",
+        "target_port": 443,
+        "failures": 2
+      },
+      {
+        "source_ip": "192.168.1.30",
+        "source_scope": "internal",
+        "target_host": "workstation-09",
+        "target_port": 443,
+        "failures": 2
+      }
+    ]
+  },
+  "findings": {
+    "bursts": [
+      {
+        "ip": "45.33.12.90",
+        "source_scope": "external",
+        "start": "2026-02-18 13:01:00",
+        "end": "2026-02-18 13:01:55",
+        "fail_count_in_window": 5,
+        "host": "server01",
+        "port": 22
+      },
+      {
+        "ip": "185.220.101.45",
+        "source_scope": "external",
+        "start": "2026-02-18 14:22:01",
+        "end": "2026-02-18 14:22:45",
+        "fail_count_in_window": 8,
+        "host": "web01",
+        "port": 443
+      },
+      {
+        "ip": "91.134.178.222",
+        "source_scope": "external",
+        "start": "2026-02-18 16:03:00",
+        "end": "2026-02-18 16:03:33",
+        "fail_count_in_window": 5,
+        "host": "db-prod",
+        "port": 1433
+      }
+    ],
+    "sprays": [
+      {
+        "ip": "185.220.101.45",
+        "source_scope": "external",
+        "users": [
+          "admin",
+          "anna",
+          "bob",
+          "carl",
+          "carol",
+          "dina",
+          "erin",
+          "frank"
+        ],
+        "start": "2026-02-18 14:22:01",
+        "end": "2026-02-18 14:22:45",
+        "fail_count_in_window": 8,
+        "unique_users_in_window": 8,
+        "host": "web01",
+        "port": 443
+      }
+    ],
+    "possible_compromise": [
+      {
+        "user": "dina",
+        "ip": "45.33.12.90",
+        "source_scope": "external",
+        "host": "server01",
+        "port": 22,
+        "start": "2026-02-18 13:01:00",
+        "end": "2026-02-18 13:01:55",
+        "success_time": "2026-02-18 13:02:05",
+        "fail_count_in_window": 5
+      }
+    ],
+    "new_host": [
+      {
+        "user": "dina",
+        "ip": "45.33.12.90",
+        "source_scope": "external",
+        "new_host": "server01",
+        "time": "2026-02-18 13:02:05"
+      },
+      {
+        "user": "admin",
+        "ip": "192.168.1.50",
+        "source_scope": "internal",
+        "new_host": "db-prod",
+        "time": "2026-02-18 15:05:00"
+      },
+      {
+        "user": "john",
+        "ip": "91.134.178.222",
+        "source_scope": "external",
+        "new_host": "web01",
+        "time": "2026-02-18 17:11:10"
+      }
+    ],
+    "new_port": [
+      {
+        "user": "dina",
+        "ip": "45.33.12.90",
+        "source_scope": "external",
+        "host": "server01",
+        "new_port": 22,
+        "time": "2026-02-18 13:02:05"
+      },
+      {
+        "user": "admin",
+        "ip": "192.168.1.50",
+        "source_scope": "internal",
+        "host": "db-prod",
+        "new_port": 1433,
+        "time": "2026-02-18 15:05:00"
+      },
+      {
+        "user": "john",
+        "ip": "91.134.178.222",
+        "source_scope": "external",
+        "host": "web01",
+        "new_port": 22,
+        "time": "2026-02-18 17:12:00"
+      }
+    ],
+    "impossible_travel": [
+      {
+        "user": "john",
+        "from_ip": "192.168.1.15",
+        "from_scope": "internal",
+        "to_ip": "91.134.178.222",
+        "to_scope": "external",
+        "from_time": "2026-02-18 17:10:00",
+        "to_time": "2026-02-18 17:11:10",
+        "from_host": "workstation-07",
+        "to_host": "web01",
+        "from_port": 443,
+        "to_port": 443
+      },
+      {
+        "user": "john",
+        "from_ip": "192.168.1.15",
+        "from_scope": "internal",
+        "to_ip": "91.134.178.222",
+        "to_scope": "external",
+        "from_time": "2026-02-18 17:10:00",
+        "to_time": "2026-02-18 17:12:00",
+        "from_host": "workstation-07",
+        "to_host": "web01",
+        "from_port": 443,
+        "to_port": 22
+      }
+    ]
+  },
+  "incidents": [
+    {
+      "type": "IMPOSSIBLE_TRAVEL",
+      "severity": "HIGH",
+      "time": "2026-02-18T17:12:00Z",
+      "message": "[IMPOSSIBLE_TRAVEL] john 192.168.1.15 -> 91.134.178.222 in 120s (workstation-07:443 -> web01:22)",
+      "recommended_actions": [
+        "Verify user activity with MFA / user confirmation",
+        "Force re-authentication and reset credentials if suspicious",
+        "Review recent successful logins and geolocation/IP reputation"
+      ],
+      "entity": {
+        "user": "john",
+        "from_ip": "192.168.1.15",
+        "to_ip": "91.134.178.222",
+        "from_host": "workstation-07",
+        "to_host": "web01",
+        "from_port": 443,
+        "to_port": 22,
+        "seconds": 120
+      }
+    },
+    {
+      "type": "IMPOSSIBLE_TRAVEL",
+      "severity": "HIGH",
+      "time": "2026-02-18T17:11:10Z",
+      "message": "[IMPOSSIBLE_TRAVEL] john 192.168.1.15 -> 91.134.178.222 in 70s (workstation-07:443 -> web01:443)",
+      "recommended_actions": [
+        "Verify user activity with MFA / user confirmation",
+        "Force re-authentication and reset credentials if suspicious",
+        "Review recent successful logins and geolocation/IP reputation"
+      ],
+      "entity": {
+        "user": "john",
+        "from_ip": "192.168.1.15",
+        "to_ip": "91.134.178.222",
+        "from_host": "workstation-07",
+        "to_host": "web01",
+        "from_port": 443,
+        "to_port": 443,
+        "seconds": 70
+      }
+    },
+    {
+      "type": "COMPROMISE",
+      "severity": "HIGH",
+      "time": "2026-02-18T13:02:05Z",
+      "message": "[COMPROMISE] dina SUCCESS after 5 FAILs from 45.33.12.90 (external) on server01:22",
+      "recommended_actions": [
+        "Reset user credentials",
+        "Block or rate-limit source IP",
+        "Review application/DB logs for suspicious access",
+        "Check for data exfiltration indicators"
+      ],
+      "entity": {
+        "user": "dina",
+        "ip": "45.33.12.90",
+        "host": "server01",
+        "port": 22
+      }
+    },
+    {
+      "type": "BURST",
+      "severity": "MEDIUM",
+      "time": "2026-02-18T16:03:33Z",
+      "message": "[BURST] 91.134.178.222 (external) -> db-prod:1433 5 FAILs in 2m window",
+      "recommended_actions": [
+        "Rate-limit or temporarily block source IP",
+        "Alert on repeated authentication failures",
+        "Check if targeted service should be internet-exposed"
+      ],
+      "entity": {
+        "ip": "91.134.178.222",
+        "host": "db-prod",
+        "port": 1433
+      }
+    },
+    {
+      "type": "BURST",
+      "severity": "MEDIUM",
+      "time": "2026-02-18T14:22:18Z",
+      "message": "[BURST] 185.220.101.45 (external) -> web01:443 5 FAILs in 2m window",
+      "recommended_actions": [
+        "Rate-limit or temporarily block source IP",
+        "Alert on repeated authentication failures",
+        "Check if targeted service should be internet-exposed"
+      ],
+      "entity": {
+        "ip": "185.220.101.45",
+        "host": "web01",
+        "port": 443
+      }
+    },
+    {
+      "type": "SPRAY",
+      "severity": "MEDIUM",
+      "time": "2026-02-18T14:22:18Z",
+      "message": "[SPRAY] 185.220.101.45 (external) -> web01:443 5 FAILs across 5 users",
+      "recommended_actions": [
+        "Rate-limit authentication attempts",
+        "Temporarily block source IP",
+        "Enable MFA for targeted accounts",
+        "Monitor for follow-on SUCCESS events"
+      ],
+      "entity": {
+        "ip": "185.220.101.45",
+        "host": "web01",
+        "port": 443,
+        "users": [
+          "anna",
+          "bob",
+          "carl",
+          "dina",
+          "erin"
+        ]
+      }
+    },
+    {
+      "type": "BURST",
+      "severity": "MEDIUM",
+      "time": "2026-02-18T13:01:55Z",
+      "message": "[BURST] 45.33.12.90 (external) -> server01:22 5 FAILs in 2m window",
+      "recommended_actions": [
+        "Rate-limit or temporarily block source IP",
+        "Alert on repeated authentication failures",
+        "Check if targeted service should be internet-exposed"
+      ],
+      "entity": {
+        "ip": "45.33.12.90",
+        "host": "server01",
+        "port": 22
+      }
+    },
+    {
+      "type": "NEW_PORT",
+      "severity": "LOW",
+      "time": "2026-02-18T17:12:00Z",
+      "message": "[NEW_PORT] john SUCCESS from 91.134.178.222 (external) on web01 new port 22",
+      "recommended_actions": [
+        "Confirm whether new service/port is expected for this user",
+        "Review firewall rules and service exposure"
+      ],
+      "entity": {
+        "user": "john",
+        "ip": "91.134.178.222",
+        "host": "web01",
+        "new_port": 22
+      }
+    },
+    {
+      "type": "NEW_HOST",
+      "severity": "LOW",
+      "time": "2026-02-18T17:11:10Z",
+      "message": "[NEW_HOST] john SUCCESS from 91.134.178.222 (external) on new host web01",
+      "recommended_actions": [
+        "Confirm whether new host access is expected for this user",
+        "Review endpoint/network logs around the event time"
+      ],
+      "entity": {
+        "user": "john",
+        "ip": "91.134.178.222",
+        "new_host": "web01"
+      }
+    },
+    {
+      "type": "NEW_HOST",
+      "severity": "LOW",
+      "time": "2026-02-18T15:05:00Z",
+      "message": "[NEW_HOST] admin SUCCESS from 192.168.1.50 (internal) on new host db-prod",
+      "recommended_actions": [
+        "Confirm whether new host access is expected for this user",
+        "Review endpoint/network logs around the event time"
+      ],
+      "entity": {
+        "user": "admin",
+        "ip": "192.168.1.50",
+        "new_host": "db-prod"
+      }
+    },
+    {
+      "type": "NEW_PORT",
+      "severity": "LOW",
+      "time": "2026-02-18T15:05:00Z",
+      "message": "[NEW_PORT] admin SUCCESS from 192.168.1.50 (internal) on db-prod new port 1433",
+      "recommended_actions": [
+        "Confirm whether new service/port is expected for this user",
+        "Review firewall rules and service exposure"
+      ],
+      "entity": {
+        "user": "admin",
+        "ip": "192.168.1.50",
+        "host": "db-prod",
+        "new_port": 1433
+      }
+    },
+    {
+      "type": "NEW_HOST",
+      "severity": "LOW",
+      "time": "2026-02-18T13:02:05Z",
+      "message": "[NEW_HOST] dina SUCCESS from 45.33.12.90 (external) on new host server01",
+      "recommended_actions": [
+        "Confirm whether new host access is expected for this user",
+        "Review endpoint/network logs around the event time"
+      ],
+      "entity": {
+        "user": "dina",
+        "ip": "45.33.12.90",
+        "new_host": "server01"
+      }
+    },
+    {
+      "type": "NEW_PORT",
+      "severity": "LOW",
+      "time": "2026-02-18T13:02:05Z",
+      "message": "[NEW_PORT] dina SUCCESS from 45.33.12.90 (external) on server01 new port 22",
+      "recommended_actions": [
+        "Confirm whether new service/port is expected for this user",
+        "Review firewall rules and service exposure"
+      ],
+      "entity": {
+        "user": "dina",
+        "ip": "45.33.12.90",
+        "host": "server01",
+        "new_port": 22
+      }
+    }
+  ]
+}
